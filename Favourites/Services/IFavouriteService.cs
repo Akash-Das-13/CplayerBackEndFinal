@@ -8,10 +8,11 @@ namespace Favourites.Services
 {
    public interface IFavouriteService
     {
-        List<Favourite> GetFavourites();
-        Favourite GetFavourite(int id);
+        List<Favourite> GetRecommend();
+
+        
         Favourite AddFavourite(Favourite favourite);
-        bool DeleteFavourite(int id);
+        bool DeleteFavourite(Favourite favourite);
         List<Favourite> GetAllFavouritesByUserId(string userId);
     }
 }

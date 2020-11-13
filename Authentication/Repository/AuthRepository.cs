@@ -42,6 +42,20 @@ namespace AuthenticationService.Repository
                 return false;
             }
         }
+        public bool IsEmailExists(string email)
+        {
+            User user1 = this.authDbContext.Users.FirstOrDefault(o => o.Email ==email );
+            if (user1 != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+      
 
         public bool LoginUser(User user)
         {

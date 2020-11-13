@@ -17,48 +17,61 @@ namespace Favourites.Services
         }
         public Favourite AddFavourite(Favourite favourite)
         {
-            /*Favourite fav= repo.AddFavourite(favourite);*/
-            Favourite fav = repo.GetFavourite(favourite.FavouriteId);
+            Favourite fav = repo.NullFavourite(favourite);
+
+            
             if (fav == null)
             {
               return  repo.AddFavourite(favourite);
             }
             else
             {
-                throw new PlayerAlreadyExistsException("already added to favourites");
+                throw new PlayerAlreadyExistsException("Already Added to Favourites");
             }
             
 
         }
 
-        public bool DeleteFavourite(int id)
+        public bool DeleteFavourite(Favourite favourite)
         {
-            Favourite favourite = repo.GetFavourite(id);
-            if(favourite==null)
-            {
-                throw new PlayerNotFoundException($"favourite with favourite id:{id} does not exists");
-            }
-            return repo.DeleteFavourite(id);
+           
+                return repo.DeleteFavourite(favourite);
+
         }
+
+
 
         public List<Favourite> GetAllFavouritesByUserId(string userId)
         {
-            return repo.GetAllFavouritesByUserId(userId);
-        }
 
-        public Favourite GetFavourite(int id)
-        {
-            Favourite favourite = repo.GetFavourite(id);
-            if (favourite == null)
+            Favourite fav = repo.AvailableFav(userId);
+
+
+            if (fav == null)
             {
-                throw new PlayerNotFoundException($"favourite with favourite id:{id} does not exists");
+                throw new PlayerNotFoundException("Nothing is Added");
             }
-            return favourite;
+            else
+            {
+               return repo.GetAllFavouritesByUserId(userId);
+            }
         }
 
-        public List<Favourite> GetFavourites()
+        
+
+        
+
+        public List<Favourite> GetRecommend()
         {
-            return repo.GetFavourites();
+            var rec = repo.GetRecommend();
+            if (rec == null)
+            {
+                throw new PlayerNotFoundException("No recommendation exists");
+            }
+            else
+            {
+                return repo.GetRecommend();
+            }
         }
     }
 }

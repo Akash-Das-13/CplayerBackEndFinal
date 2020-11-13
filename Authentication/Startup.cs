@@ -32,8 +32,8 @@ namespace AuthenticationService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddSwaggerGen(o => o.SwaggerDoc("v1", new OpenApiInfo { Title = "CplayerApp", Version = "1.0", Description = "This api is to get data and store data from 3rd party Api" }));
-            
+            services.AddSwaggerGen(Options => Options.SwaggerDoc("v1", new OpenApiInfo { Title = "CplayerApp", Version = "1.O", Description = "This is FavouritesAPI" }));
+
             services.AddDbContext<AuthDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Con")));
             services.AddScoped<AuthDbContext>();
             services.AddScoped<IAuthRepository, AuthRepository>();
@@ -61,7 +61,7 @@ namespace AuthenticationService
                 endpoints.MapControllers();
             });
             app.UseSwagger();
-            app.UseSwaggerUI(e => e.SwaggerEndpoint("/swagger/v1/swagger.json", "CplayerApp v1"));
+            app.UseSwaggerUI(endpoint => endpoint.SwaggerEndpoint("/swagger/v1/swagger.json", "CplayerApp "));
         }
     }
 }

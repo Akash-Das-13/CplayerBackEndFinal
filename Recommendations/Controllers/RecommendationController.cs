@@ -21,19 +21,10 @@ namespace Recommendations.Controllers
             service = _service;
         }
         [HttpGet]
-        public List<Recommendation> Get()
+        public Task<List<Data>> Get()
         {
             return service.GetRecommendations();
         }
-        [HttpPost]
-        public ActionResult Post(Recommendation recommendation)
-        {
-            var result = service.AddRecommendation(recommendation);
-            if(result == 1)
-            {
-                return StatusCode(201, $"{result} Record added");
-            }
-            return StatusCode(500);
-        }
+        
     }
 }

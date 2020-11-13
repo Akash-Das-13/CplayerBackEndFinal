@@ -11,6 +11,7 @@ namespace Favourites.Models
         public DataContext(DbContextOptions options):base(options)
         {
             Database.EnsureCreated();
+            
         }
         public DbSet<Favourite> Favourites { get; set; }
     }

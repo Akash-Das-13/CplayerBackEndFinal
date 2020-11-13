@@ -14,12 +14,8 @@ namespace Recommendations.Services
         {
             repo = _repo;
         }
-        public int AddRecommendation(Recommendation recommendation)
-        {
-            return repo.AddRecommendation(recommendation);
-        }
 
-        public List<Recommendation> GetRecommendations()
+        public Task<List<Data>> GetRecommendations()
         {
             return repo.GetRecommendations();
         }

@@ -37,7 +37,7 @@ namespace PlayerAPI.Repository
             response.EnsureSuccessStatusCode();
 
             var stringResponse =await  response.Content.ReadAsStringAsync();
-            /*var player2 = JsonConvert.DeserializeObject<List<Player>>(stringResponse);*/
+            
 
             var player2 = JsonConvert.DeserializeObject<Player>(stringResponse);
 

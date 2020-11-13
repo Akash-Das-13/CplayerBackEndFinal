@@ -8,7 +8,6 @@ namespace Recommendations.Services
 {
     public interface IRecommendationService
     {
-        List<Recommendation> GetRecommendations();
-        int AddRecommendation(Recommendation recommendation);
+        Task<List<Data>> GetRecommendations();
     }
 }

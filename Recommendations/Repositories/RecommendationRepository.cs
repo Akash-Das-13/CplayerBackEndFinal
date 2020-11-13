@@ -2,27 +2,63 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using Newtonsoft.Json;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
+using Microsoft.EntityFrameworkCore.Storage;
 
 namespace Recommendations.Repositories
 {
     public class RecommendationRepository : IRecommendationRepository
     {
-        private readonly DataContext db;
-        public RecommendationRepository(DataContext dbcontext)
+        private readonly string url;
+
+        private readonly string Baseurl;
+
+        public RecommendationRepository(IConfiguration configuration) : base()
         {
-            db = dbcontext;
-        }
-        public int AddRecommendation(Recommendation recommendation)
-        {
-            db.Recommendations.Add(recommendation);
-            return db.SaveChanges();
-            
+            url = configuration.GetSection("URL_Settings:url").Value;
+
+            Baseurl = configuration.GetSection("URL_Settings:Baseurl").Value;
         }
 
-        public List<Recommendation> GetRecommendations()
+        public async Task<List<Data>> GetRecommendations()
         {
-            return db.Recommendations.ToList();
+
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri($"{Baseurl}");
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            List<Data> requiredData = new List<Data>();
+            requiredData.Clear();
+            
+            HttpResponseMessage response =client.GetAsync($"{url}").Result;
+            response.EnsureSuccessStatusCode();
+
+            string stringResponse = await response.Content.ReadAsStringAsync();
+
+            var player2 = JsonConvert.DeserializeObject<List<Data>>(stringResponse);
+
+            /*foreach (var item in player2.Datas)
+            {
+                requiredData.Add(new Data
+                {
+                    FavouriteId = item.FavouriteId,
+                    Count=item.Count,
+                    PId = item.PId,
+                    Name = item.Name,
+                    UserId=item.UserId,
+                    FullName = item.FullName
+                }) ;
+            }*/
+            return player2;
+
+
+
         }
+
+
     }
 }

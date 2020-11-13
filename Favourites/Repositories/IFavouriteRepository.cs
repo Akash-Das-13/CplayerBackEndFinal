@@ -8,10 +8,14 @@ namespace Favourites.Repositories
 {
    public interface IFavouriteRepository
     {
-        List<Favourite> GetFavourites();
-        Favourite GetFavourite(int id);
+        List<Favourite> GetRecommend();
+
+        Favourite NullFavourite(Favourite favourite);
         Favourite AddFavourite(Favourite favourite);
-        bool DeleteFavourite(int id);
+        bool DeleteFavourite(Favourite favourite);
         List<Favourite> GetAllFavouritesByUserId(string userId);
+
+        Favourite AvailableFav(string userId);
+
     }
 }

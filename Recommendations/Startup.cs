@@ -34,12 +34,12 @@ namespace Recommendations
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //this.ValidateToken(Configuration, services);
+            this.ValidateToken(Configuration, services);
             services.AddControllers();
-            services.AddDbContext<DataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("SqlConnection")));
+           
             services.AddScoped<IRecommendationRepository, RecommendationRepository>();
             services.AddScoped<IRecommendationService, RecommendationService>();
-            //services.AddControllers().AddNewtonsoftJson();
+            
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy", builder => builder

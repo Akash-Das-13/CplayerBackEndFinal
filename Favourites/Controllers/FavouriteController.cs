@@ -9,11 +9,11 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+
 
 namespace Favourites.Controllers
 {
-    //[Authorize]
+    
     [Route("api/[controller]")]
     [ApiController]
     public class FavouriteController : ControllerBase
@@ -23,35 +23,25 @@ namespace Favourites.Controllers
         {
             service = _service;
         }
-        // GET: api/<FavouriteController>
+        
         [HttpGet]
-        public IActionResult Get()
+        [Route("recommend")]
+        public IActionResult GetRec()
         {
             try
             {
-                return Ok(service.GetFavourites());
-            }
-            catch(Exception e)
-            {
-                return StatusCode(500, JsonConvert.SerializeObject(e.Message));
-            }
-        }
-
-        // GET api/<FavouriteController>/5
-        [HttpGet("{id}")]
-        public IActionResult Get(int id)
-        {
-            try
-            {
-                return Ok(service.GetFavourite(id));
+                return Ok(service.GetRecommend());
             }
             catch(PlayerNotFoundException p)
             {
-                return NotFound(JsonConvert.SerializeObject(p.Message));
+                return StatusCode(404, JsonConvert.SerializeObject("Nothing to Recommend"));
             }
-            
         }
-        [HttpGet("{userId}")]
+
+
+        [Authorize]
+        [HttpGet]
+        [Route("{userId}")]
         public IActionResult Get(string userId)
         {
             try
@@ -62,11 +52,15 @@ namespace Favourites.Controllers
             {
                 return NotFound(JsonConvert.SerializeObject(p.Message));
             }
+            catch(Exception e)
+            {
+                return StatusCode(500, JsonConvert.SerializeObject(e.Message));
+            }
 
         }
 
 
-        // POST api/<FavouriteController>
+        [Authorize]
         [HttpPost]
         public IActionResult Post([FromBody] Favourite favourite)
         { 
@@ -85,20 +79,17 @@ namespace Favourites.Controllers
             }
         }
 
-        // PUT api/<FavouriteController>/5
-        
-
-        // DELETE api/<FavouriteController>/5
-        [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        [Authorize]
+        [HttpDelete]
+        public IActionResult Delete([FromBody] Favourite favourite)
         {
             try
             {
-                return Ok(service.DeleteFavourite(id));
+                return Ok(service.DeleteFavourite(favourite));
             }
-            catch (PlayerNotFoundException p)
+            catch ( Exception e)
             {
-                return NotFound(JsonConvert.SerializeObject(p.Message));
+                return NotFound(JsonConvert.SerializeObject(e.Message));
             }
             
         }

@@ -8,7 +8,7 @@ namespace Recommendations.Repositories
 {
    public interface IRecommendationRepository
     {
-        List<Recommendation> GetRecommendations();
-        int AddRecommendation(Recommendation recommendation);
+        Task<List<Data>> GetRecommendations();
+        
     }
 }

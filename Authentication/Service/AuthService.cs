@@ -27,14 +27,22 @@ namespace AuthenticationService.Service
 
         public bool RegisterUser(User user)
         {
+            var us = this.authRepository.IsEmailExists(user.Email);
             var usv = this.authRepository.IsUserExists(user.UserId);
-            if (usv==false)
+            if (us == false)
             {
-                return this.authRepository.CreateUser(user);
+                if (usv == false)
+                {
+                    return this.authRepository.CreateUser(user);
+                }
+                else
+                {
+                    throw new UserAlreadyExistsException($"This userId {user.UserId} is Already registerd. Please Try With SomeThing Different.");
+                }
             }
             else
             {
-                throw new UserAlreadyExistsException($"This userId {user.UserId} already in use");
+                throw new UserAlreadyExistsException($"This Email Address {user.Email} is already regigtered. Please Login or Try with a different Email Address");
             }
         }
     }
