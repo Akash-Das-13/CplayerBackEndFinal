@@ -1,24 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\adminvm.Adminvm\\Desktop\\Project(CPLYER_App)\\CplayerApp\\Recommendations\\Recommendations.csproj": {}
+    "D:\\CplayerBackEndFinal\\Recommendations\\Recommendations.csproj": {}
   },
   "projects": {
-    "C:\\Users\\adminvm.Adminvm\\Desktop\\Project(CPLYER_App)\\CplayerApp\\Recommendations\\Recommendations.csproj": {
+    "D:\\CplayerBackEndFinal\\Recommendations\\Recommendations.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\adminvm.Adminvm\\Desktop\\Project(CPLYER_App)\\CplayerApp\\Recommendations\\Recommendations.csproj",
+        "projectUniqueName": "D:\\CplayerBackEndFinal\\Recommendations\\Recommendations.csproj",
         "projectName": "Recommendations",
-        "projectPath": "C:\\Users\\adminvm.Adminvm\\Desktop\\Project(CPLYER_App)\\CplayerApp\\Recommendations\\Recommendations.csproj",
-        "packagesPath": "C:\\Users\\adminvm.Adminvm\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\adminvm.Adminvm\\Desktop\\Project(CPLYER_App)\\CplayerApp\\Recommendations\\obj\\",
+        "projectPath": "D:\\CplayerBackEndFinal\\Recommendations\\Recommendations.csproj",
+        "packagesPath": "C:\\Users\\de\\.nuget\\packages\\",
+        "outputPath": "D:\\CplayerBackEndFinal\\Recommendations\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\adminvm.Adminvm\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\de\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"

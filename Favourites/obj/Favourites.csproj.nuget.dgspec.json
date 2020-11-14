@@ -1,24 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\adminvm.Adminvm\\Desktop\\Project(CPLYER_App)\\CplayerApp\\Favourites\\Favourites.csproj": {}
+    "D:\\CplayerBackEndFinal\\Favourites\\Favourites.csproj": {}
   },
   "projects": {
-    "C:\\Users\\adminvm.Adminvm\\Desktop\\Project(CPLYER_App)\\CplayerApp\\Favourites\\Favourites.csproj": {
+    "D:\\CplayerBackEndFinal\\Favourites\\Favourites.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\adminvm.Adminvm\\Desktop\\Project(CPLYER_App)\\CplayerApp\\Favourites\\Favourites.csproj",
+        "projectUniqueName": "D:\\CplayerBackEndFinal\\Favourites\\Favourites.csproj",
         "projectName": "Favourites",
-        "projectPath": "C:\\Users\\adminvm.Adminvm\\Desktop\\Project(CPLYER_App)\\CplayerApp\\Favourites\\Favourites.csproj",
-        "packagesPath": "C:\\Users\\adminvm.Adminvm\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\adminvm.Adminvm\\Desktop\\Project(CPLYER_App)\\CplayerApp\\Favourites\\obj\\",
+        "projectPath": "D:\\CplayerBackEndFinal\\Favourites\\Favourites.csproj",
+        "packagesPath": "C:\\Users\\de\\.nuget\\packages\\",
+        "outputPath": "D:\\CplayerBackEndFinal\\Favourites\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\adminvm.Adminvm\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\de\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"

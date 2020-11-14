@@ -16,6 +16,11 @@ namespace PlayerAPI.Repository
         private readonly string keyV;
         
         private readonly string Baseurl;
+        public PlayerRepository()
+        {
+
+        }
+
 
         public PlayerRepository(IConfiguration configuration) : base()
         {

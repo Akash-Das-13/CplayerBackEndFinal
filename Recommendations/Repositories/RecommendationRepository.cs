@@ -17,6 +17,8 @@ namespace Recommendations.Repositories
 
         private readonly string Baseurl;
 
+        public RecommendationRepository() { }
+
         public RecommendationRepository(IConfiguration configuration) : base()
         {
             url = configuration.GetSection("URL_Settings:url").Value;
