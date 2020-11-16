@@ -1,26 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\CplayerBackEndFinal\\Favourites\\Favourites.csproj": {}
+    "C:\\Users\\adminvm.Adminvm\\Desktop\\Project(CPLYER_App)\\BackEndTestCaseDone\\Favourites\\Favourites.csproj": {}
   },
   "projects": {
-    "D:\\CplayerBackEndFinal\\Favourites\\Favourites.csproj": {
+    "C:\\Users\\adminvm.Adminvm\\Desktop\\Project(CPLYER_App)\\BackEndTestCaseDone\\Favourites\\Favourites.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\CplayerBackEndFinal\\Favourites\\Favourites.csproj",
+        "projectUniqueName": "C:\\Users\\adminvm.Adminvm\\Desktop\\Project(CPLYER_App)\\BackEndTestCaseDone\\Favourites\\Favourites.csproj",
         "projectName": "Favourites",
-        "projectPath": "D:\\CplayerBackEndFinal\\Favourites\\Favourites.csproj",
-        "packagesPath": "C:\\Users\\de\\.nuget\\packages\\",
-        "outputPath": "D:\\CplayerBackEndFinal\\Favourites\\obj\\",
+        "projectPath": "C:\\Users\\adminvm.Adminvm\\Desktop\\Project(CPLYER_App)\\BackEndTestCaseDone\\Favourites\\Favourites.csproj",
+        "packagesPath": "C:\\Users\\adminvm.Adminvm\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\adminvm.Adminvm\\Desktop\\Project(CPLYER_App)\\BackEndTestCaseDone\\Favourites\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\de\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\adminvm.Adminvm\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"

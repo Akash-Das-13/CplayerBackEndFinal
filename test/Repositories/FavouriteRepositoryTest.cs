@@ -113,7 +113,7 @@ namespace test.Repository
         public void  DeleteSuccess()
         {
             var res = repo.AddFavourite(new Favourite() { Name = "Sachin Tendulkar", FullName = "Sachin Ramesh Tendulkar", PId = 90087, UserId = "35320" });
-            var s = repo.DeleteFavourite(res);
+            var s = repo.DeleteFavourite(90087,"35320");
             Assert.IsTrue(s);
         }
        /* [Test]

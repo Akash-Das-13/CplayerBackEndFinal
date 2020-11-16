@@ -12,7 +12,7 @@ namespace Favourites.Repositories
 
         Favourite NullFavourite(Favourite favourite);
         Favourite AddFavourite(Favourite favourite);
-        bool DeleteFavourite(Favourite favourite);
+        bool DeleteFavourite(int pId, string userId);
         List<Favourite> GetAllFavouritesByUserId(string userId);
 
         Favourite AvailableFav(string userId);

@@ -12,7 +12,7 @@ namespace Favourites.Services
 
         
         Favourite AddFavourite(Favourite favourite);
-        bool DeleteFavourite(Favourite favourite);
+        bool DeleteFavourite(int pId, string userId);
         List<Favourite> GetAllFavouritesByUserId(string userId);
     }
 }

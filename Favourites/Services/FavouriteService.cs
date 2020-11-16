@@ -32,10 +32,10 @@ namespace Favourites.Services
 
         }
 
-        public bool DeleteFavourite(Favourite favourite)
+        public bool DeleteFavourite(int pId, string userId)
         {
            
-                return repo.DeleteFavourite(favourite);
+                return repo.DeleteFavourite( pId,  userId);
 
         }
 

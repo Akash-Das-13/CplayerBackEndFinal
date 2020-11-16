@@ -46,11 +46,13 @@ namespace Favourites.Repositories
 
         
 
-        public bool DeleteFavourite(Favourite favourite)
+        public bool DeleteFavourite(int pId, string userId)
         {
-            var fav = favourite;
-            var dFav = db.Favourites.Where(p => p.PId ==fav.PId  && p.UserId==fav.UserId).FirstOrDefault();
-            db.Favourites.Remove(dFav);
+            var favourite = db.Favourites.Where(p => p.PId ==pId  && p.UserId== userId).FirstOrDefault();
+            //var fav = favourite;
+            var Dfav = NullFavourite(favourite);
+            //var dFav = db.Favourites.Where(p => p.PId ==fav.PId  && p.UserId==fav.UserId).FirstOrDefault();
+            db.Favourites.Remove(Dfav);
             return db.SaveChanges() == 1;
         }
 
@@ -66,7 +68,7 @@ namespace Favourites.Repositories
             
             var maxC =db.Favourites.Max(prop => prop.Count);
             int aveC = maxC / 2;
-            Console.WriteLine(aveC);
+            
             var recL= db.Favourites.Where(p => p.Count >= aveC).ToList();
             var bar = recL.GroupBy(x => x.PId).Select(x => x.First()).ToList();
             return bar;
@@ -75,7 +77,7 @@ namespace Favourites.Repositories
         public Favourite NullFavourite(Favourite favourite)
         {
             return db.Favourites.Where(p => p.PId == favourite.PId && p.UserId == favourite.UserId).FirstOrDefault();
-
+            
         }
 
         public Favourite AvailableFav(string userId)

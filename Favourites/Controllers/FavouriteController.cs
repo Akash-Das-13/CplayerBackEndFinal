@@ -13,7 +13,7 @@ using Newtonsoft.Json;
 
 namespace Favourites.Controllers
 {
-    
+
     [Route("api/[controller]")]
     [ApiController]
     public class FavouriteController : ControllerBase
@@ -23,7 +23,7 @@ namespace Favourites.Controllers
         {
             service = _service;
         }
-        
+
         [HttpGet]
         [Route("recommend")]
         public IActionResult GetRec()
@@ -32,7 +32,7 @@ namespace Favourites.Controllers
             {
                 return Ok(service.GetRecommend());
             }
-            catch(PlayerNotFoundException p)
+            catch (PlayerNotFoundException p)
             {
                 return StatusCode(404, JsonConvert.SerializeObject("Nothing to Recommend"));
             }
@@ -52,7 +52,7 @@ namespace Favourites.Controllers
             {
                 return NotFound(JsonConvert.SerializeObject(p.Message));
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return StatusCode(500, JsonConvert.SerializeObject(e.Message));
             }
@@ -63,17 +63,17 @@ namespace Favourites.Controllers
         [Authorize]
         [HttpPost]
         public IActionResult Post([FromBody] Favourite favourite)
-        { 
+        {
             try
             {
-                
+
                 return Ok(service.AddFavourite(favourite));
             }
-            catch(PlayerAlreadyExistsException p)
+            catch (PlayerAlreadyExistsException p)
             {
                 return StatusCode(403, JsonConvert.SerializeObject(p.Message));
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return StatusCode(500, JsonConvert.SerializeObject(e.Message));
             }
@@ -81,11 +81,13 @@ namespace Favourites.Controllers
 
         [Authorize]
         [HttpDelete]
-        public IActionResult Delete([FromBody] Favourite favourite)
+        [Route("{pId}/{userId}")]
+        public IActionResult Delete(string pId, string userId)
         {
             try
             {
-                return Ok(service.DeleteFavourite(favourite));
+                int id = Convert.ToInt32(pId);
+                return Ok(service.DeleteFavourite( id,  userId));
             }
             catch ( Exception e)
             {
